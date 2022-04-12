@@ -8,7 +8,7 @@ tempFileIn = args[1]
 tempData = utils::read.table(tempFileIn, sep = "\t", stringsAsFactors = F, header = T)
 # tempData = utils::read.table(text = gsub(",", "\t", readLines(tempFileIn)), stringsAsFactors = F, header =  T)
 
-# Remove control guide rows
+# Remove rows with control guides
 tempData = tempData[!grepl("Neg_Control", tempData[,2]),]
 tempData = tempData[!grepl("sgINTRON", tempData[,2]),]
 tempData = tempData[!grepl("NegCtrl", tempData[,2]),]
