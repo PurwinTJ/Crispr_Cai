@@ -6,7 +6,7 @@ Code that takes CRISPR sgRNA (or other screening) fastq files and:
 3) Performs STARS v1.3 for each sample
 4) Generate RIGER-ready normalized data files
 
-Intermediate files are kept for users to perform quality control checks. The control guides are removed prior to normalizing and performing STARS, but are present in the intermediate files. It is strongly advised to perform quality control checks using the intermediate files with control guides.
+Intermediate files are kept for users to perform quality control checks. The control guides are removed before normalizing and running STARS, but are present in the intermediate files. It is strongly advised to perform quality control checks using the intermediate files with control guides.
 
 PoolQ can be downloaded from:
 https://portals.broadinstitute.org/gpp/public/software/poolq 
