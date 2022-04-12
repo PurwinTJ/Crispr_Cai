@@ -18,7 +18,7 @@ function usage() {
   echo "  -sni|--num-ite                 number of iterations to generate the null distribution"
   echo "  -sufp|--use-first-pert         whether if to use the top (a single) perturbation can represent a gene. Otherwise, use at least two. Y or N"
   echo ""
-  echo "Example: $0 --number-of-people 2 --section-id 1 --cache-file last-known-date.txt"
+  echo "Example: $0"
 }
 
 while [[ "$#" -gt 0 ]]; do
