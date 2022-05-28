@@ -2,21 +2,21 @@
 
 function usage() {
   echo "Usage: $0 [-d directory] [-drs directory-R-scripts] [-dss directory-STARS-script] [-prrea row-reads] [-pcrea col-reads] [-prref row-reference] [-pcref col-reference] [-prbp row-barcode-policy] [-pcbp col-barcode-policy] [-prm row-matcher] [-pcm col-matcher] [-scf chip-file] [-st thr] [-sni num-ite] [-sufp use-first-pert]"
-  echo "  -d|--directory                 main output directory"
-  echo "  -drs|--directory-R-scripts     directory with R scripts"
-  echo "  -dss|--directory-STARS-scripts directory with STARS scripts"
-  echo "  -prrea|--row-reads             fastq.gz R1 file with CRISPR sequencing data"
-  echo "  -pcrea|--col-reads             fastq.gz I1 file with sample barcode data"
-  echo "  -prref|--row-reference         CRISPR reference sequences. Usually barcodes matching an indexed gene name (ie TP53_1, TP53_2)"
-  echo "  -pcref|--col-reference         sample reference sequences" 
-  echo "  -prbp|--row-barcode-policy     poolQ row barcode policy"
-  echo "  -pcbp|--col-barcode-policy     poolQ column barcode policy"
-  echo "  -prm|--row-matcher             poolQ allow for a mismatch or perfect match only, for row barcodes. exact or mismatch"
-  echo "  -pcm|--col-matcher             poolQ allow for a mismatch or perfect match only, for column barcodes. exact or mismatch"
-  echo "  -scf|--chip-file               path to file with sg sequences annotated with gene names. Usually 4 sequences matching 1 gene"
-  echo "  -st|--thr                      top percent of perturbations that a STARS score will be calculated"
-  echo "  -sni|--num-ite                 number of iterations to generate the null distribution"
-  echo "  -sufp|--use-first-pert         whether if to use the top (a single) perturbation can represent a gene. Otherwise, use at least two. Y or N"
+  echo "  -d|--directory                  main output directory"
+  echo "  -drs|--directory-R-scripts      directory with R scripts"
+  echo "  -dss|--directory-STARS-scripts  directory with STARS scripts"
+  echo "  -prrea|--row-reads              fastq.gz R1 file with CRISPR sequencing data"
+  echo "  -pcrea|--col-reads              fastq.gz I1 file with sample barcode data"
+  echo "  -prref|--row-reference          CRISPR reference sequences. Usually barcodes matching an indexed gene name (ie TP53_1, TP53_2)"
+  echo "  -pcref|--col-reference          sample reference sequences" 
+  echo "  -prbp|--row-barcode-policy      poolQ row barcode policy"
+  echo "  -pcbp|--col-barcode-policy      poolQ column barcode policy"
+  echo "  -prm|--row-matcher              poolQ allow for a mismatch or perfect match only, for row barcodes. exact or mismatch"
+  echo "  -pcm|--col-matcher              poolQ allow for a mismatch or perfect match only, for column barcodes. exact or mismatch"
+  echo "  -scf|--chip-file                path to file with sg sequences annotated with gene names. Usually 4 sequences matching 1 gene"
+  echo "  -st|--thr                       top percent of perturbations that a STARS score will be calculated"
+  echo "  -sni|--num-ite                  number of iterations to generate the null distribution"
+  echo "  -sufp|--use-first-pert          whether if to use the top (a single) perturbation can represent a gene. Otherwise, use at least two. Y or N"
   echo ""
   echo "Example: $0"
 }
@@ -38,7 +38,7 @@ while [[ "$#" -gt 0 ]]; do
     -st|--thr) THRESHOLDPCT="$2"; shift ;;
     -sni|--num-ite) ITERATIONS="$2"; shift ;;
     -sufp|--use-first-pert) USEFIRSTPERT="$2"; shift ;;
-    *) echo "Unknown parameter: $1"; exit 1 ;;
+    *) usage echo "Unknown parameter: $1"; exit 1 ;;
   esac
   shift
 done
