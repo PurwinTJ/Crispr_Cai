@@ -6,12 +6,13 @@ tempFileIn = args[1]
 
 # Read data in
 tempData = utils::read.table(tempFileIn, sep = "\t", stringsAsFactors = F, header = T)
-# tempData = utils::read.table(text = gsub(",", "\t", readLines(tempFileIn)), stringsAsFactors = F, header =  T)
 
-# Remove rows with control guides
-tempData = tempData[!grepl("Neg_Control", tempData[,2]),]
-tempData = tempData[!grepl("sgINTRON", tempData[,2]),]
-tempData = tempData[!grepl("NegCtrl", tempData[,2]),]
+# Identify targets that have more than the normal 4 guides per gene. Targets with a higher frequency of guides can produce unexpected STARS results.
+freqCount = table(tempData[,2])
+toRemove = names(freqCount)[freqCount>4]
+
+# Remove rows with more guides than the normal 3-4 per-gene.
+tempData = tempData[!tempData[,2] %in% toRemove,]
 
 # Declare output file 
 tempFileOut = args[2]
